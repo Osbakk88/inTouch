@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>inTouch | Register</title>
+    <link rel="stylesheet" href="./styles/main.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>Register</h1>
+      <form id="register-form">
+        <label for="register-name">Display name</label>
+        <input
+          id="register-name"
+          name="name"
+          type="text"
+          minlength="2"
+          required
+        />
+
+        <label for="register-email">Email</label>
+        <input
+          id="register-email"
+          name="email"
+          type="email"
+          autocomplete="email"
+          required
+        />
+
+        <label for="register-password">Password</label>
+        <input
+          id="register-password"
+          name="password"
+          type="password"
+          autocomplete="new-password"
+          minlength="8"
+          required
+        />
+
+        <button type="submit">Create account</button>
+        <p id="register-error" class="error"></p>
+      </form>
+      <p>Already have an account? <a href="./login.html">Sign in</a></p>
+    </main>
+    <script type="module" src="./src/pages/registerPage.js"></script>
+  </body>
+</html>
