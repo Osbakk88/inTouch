@@ -1,9 +1,7 @@
 import { API_ENDPOINTS } from "../utils/config.js";
 
-export async function login(payload) {}
-
-export async function register(payload) {
-  const response = await fetch(API_ENDPOINTS.auth.register, {
+export async function login(payload) {
+  const loginResponse = await fetch(API_ENDPOINTS.auth.login, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -11,10 +9,27 @@ export async function register(payload) {
     body: JSON.stringify(payload),
   });
 
-  const data = await response.json();
+  const loginData = await loginResponse.json();
 
-  if (!response.ok) {
-    throw new Error(data.errors?.[0]?.message || "Could not register user");
+  if (!loginResponse.ok) {
+    throw new Error("Login failed. Check your email and password.");
   }
-  return data;
+  return loginData;
+}
+
+export async function register(payload) {
+  const registerResponse = await fetch(API_ENDPOINTS.auth.register, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(payload),
+  });
+
+  const registerData = await registerResponse.json();
+
+  if (!registerResponse.ok) {
+    throw new Error("Registration failed. Please try again.");
+  }
+  return registerData;
 }
