@@ -3,12 +3,20 @@ import { register } from "../api/auth.js";
 
 export function initRegisterPage() {
   const form = document.querySelector("#register-form");
+  const errorMessage = document.querySelector("#register-error");
   if (!form) return;
 
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
     const data = getFormData(form);
-    console.log("Register submit", data);
+    errorMessage.textContent = "";
+
+    try {
+      await register(data);
+      window.location.href = "./login.html";
+    } catch (error) {
+      errorMessage.textContent = error.message;
+    }
   });
 }
 
