@@ -41,3 +41,43 @@ export async function createPost(payload) {
 
   return result.data;
 }
+
+export async function updatePost(postId, payload) {
+  const accessToken = getToken();
+
+  const response = await fetch(`${API_ENDPOINTS.posts.base}/${postId}`, {
+    method: "PUT",
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+      "X-Noroff-API-Key": API_KEY,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(payload),
+  });
+
+  const result = await response.json();
+
+  if (!response.ok) {
+    throw new Error("Please try again. Update failed.");
+  }
+
+  return result.data;
+}
+
+export async function deletePost(postId) {
+  const accessToken = getToken();
+
+  const response = await fetch(`${API_ENDPOINTS.posts.base}/${postId}`, {
+    method: "DELETE",
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+      "X-Noroff-API-Key": API_KEY,
+    },
+  });
+
+  if (!response.ok) {
+    throw new Error("Failed to delete post. Please try again.");
+  }
+
+  return true;
+}
