@@ -1,6 +1,6 @@
 import { requireAuth } from "../utils/authGuard.js";
 import { renderPosts } from "../ui/renderPosts.js";
-import { getPosts, createPost } from "../api/posts.js";
+import { getPosts, createPost, deletePost } from "../api/posts.js";
 import { getFormData } from "../ui/forms.js";
 
 export async function initFeedPage() {
@@ -35,6 +35,20 @@ export async function initFeedPage() {
       container.innerHTML = renderPosts(allPosts);
     } catch (error) {
       postError.textContent = error.message;
+    }
+  });
+
+  container.addEventListener("click", async (event) => {
+    if (event.target.classList.contains("delete-post-btn")) {
+      const postId = event.target.dataset.id;
+
+      try {
+        await deletePost(postId);
+        const allPosts = await getPosts();
+        container.innerHTML = renderPosts(allPosts);
+      } catch (error) {
+        postError.textContent = error.message;
+      }
     }
   });
 }
