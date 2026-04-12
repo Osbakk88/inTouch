@@ -1,6 +1,6 @@
 import { requireAuth } from "../utils/authGuard.js";
 import { renderPosts } from "../ui/renderPosts.js";
-import { getPosts, createPost, deletePost } from "../api/posts.js";
+import { getPosts, createPost, deletePost, updatePost } from "../api/posts.js";
 import { getFormData } from "../ui/forms.js";
 
 export async function initFeedPage() {
@@ -49,6 +49,26 @@ export async function initFeedPage() {
       } catch (error) {
         postError.textContent = error.message;
       }
+    }
+  });
+
+  container.addEventListener("click", async (event) => {
+    const editButton = event.target.closest(".edit-post-btn");
+    if (!editButton) return;
+
+    const postId = editButton.dataset.id;
+    const newTitle = prompt("New title:");
+    const newBody = prompt("New body:");
+
+    if (!newTitle || !newBody) return;
+
+    try {
+      await updatePost(postId, { title: newTitle, body: newBody });
+
+      const allPosts = await getPosts();
+      container.innerHTML = renderPosts(allPosts);
+    } catch (error) {
+      postError.textContent = error.message;
     }
   });
 }
