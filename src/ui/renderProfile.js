@@ -9,6 +9,10 @@ export function renderProfile(profile = {}) {
       ${avatarUrl ? `<img src="${avatarUrl}" alt="${profile.name ?? "User"} avatar" />` : ""}
       <h2>${profile.name ?? "Unknown user"}</h2>
       <p>${bio}</p>
+      <div class="profile-actions">
+      <button class="follow-btn" data-username="${profile.name}">Follow</button>
+      <button class="unfollow-btn" data-username="${profile.name}">Unfollow</button>
+      </div>
     </section>
   `;
 }
