@@ -1,13 +1,21 @@
-import { API_ENDPOINTS } from "../utils/config.js";
+import { API_ENDPOINTS, API_KEY } from "../utils/config.js";
+import { getToken } from "../utils/storage.js";
 
 export async function getProfile(username) {
-  return { endpoint: `${API_ENDPOINTS.profiles.base}/${username}` };
-}
+  const accessToken = getToken();
 
-export async function followProfile(username) {
-  return { endpoint: `${API_ENDPOINTS.profiles.base}/${username}/follow` };
-}
+  const response = await fetch(`${API_ENDPOINTS.profiles.base}/${username}`, {
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+      "X-Noroff-API-Key": API_KEY,
+    },
+  });
 
-export async function unfollowProfile(username) {
-  return { endpoint: `${API_ENDPOINTS.profiles.base}/${username}/unfollow` };
+  const result = await response.json();
+
+  if (!response.ok) {
+    throw new Error("Could not load profile. Please try again.");
+  }
+
+  return result.data;
 }
