@@ -14,9 +14,11 @@ export async function initFeedPage() {
 
   if (!form || !postError) return;
 
+  let posts = [];
+
   try {
-    const allPosts = await getPosts();
-    container.innerHTML = renderPosts(allPosts);
+    posts = await getPosts();
+    container.innerHTML = renderPosts(posts);
   } catch (error) {
     container.innerHTML = `<p>Failed to load posts: ${error.message}</p>`;
   }
@@ -31,8 +33,8 @@ export async function initFeedPage() {
       await createPost(data);
       form.reset();
 
-      const allPosts = await getPosts();
-      container.innerHTML = renderPosts(allPosts);
+      posts = await getPosts();
+      container.innerHTML = renderPosts(posts);
     } catch (error) {
       postError.textContent = error.message;
     }
@@ -44,8 +46,8 @@ export async function initFeedPage() {
 
       try {
         await deletePost(postId);
-        const allPosts = await getPosts();
-        container.innerHTML = renderPosts(allPosts);
+        posts = await getPosts();
+        container.innerHTML = renderPosts(posts);
       } catch (error) {
         postError.textContent = error.message;
       }
@@ -65,11 +67,25 @@ export async function initFeedPage() {
     try {
       await updatePost(postId, { title: newTitle, body: newBody });
 
-      const allPosts = await getPosts();
-      container.innerHTML = renderPosts(allPosts);
+      posts = await getPosts();
+      container.innerHTML = renderPosts(posts);
     } catch (error) {
       postError.textContent = error.message;
     }
+  });
+
+  const searchInput = document.querySelector("#search-input");
+  if (!searchInput) return;
+
+  // AI-assisted: guidance used for scope, listener placement, and filter logic.
+  searchInput.addEventListener("input", () => {
+    const keyword = searchInput.value.toLowerCase();
+    const filteredPosts = posts.filter(
+      (post) =>
+        post.title?.toLowerCase().includes(keyword) ||
+        post.body?.toLowerCase().includes(keyword),
+    );
+    container.innerHTML = renderPosts(filteredPosts);
   });
 }
 

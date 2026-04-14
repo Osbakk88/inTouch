@@ -9,18 +9,15 @@
   <body>
     <main class="container">
       <h1>Feed</h1>
-
+      <input type="text" id="search-input" placeholder="Search posts..." />
       <form id="create-post-form">
         <label for="post-title">Title</label>
         <input id="post-title" name="title" type="text" required />
-
         <label for="post-body">Body</label>
         <textarea id="post-body" name="body" rows="4" required></textarea>
-
         <button type="submit">Create post</button>
         <p id="post-error" class="error"></p>
       </form>
-
       <section id="feed-list"></section>
     </main>
     <script type="module" src="./src/pages/feedPage.js"></script>
