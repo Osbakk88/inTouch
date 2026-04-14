@@ -11,6 +11,7 @@ export function renderPosts(posts = []) {
         <p>${post.body ?? ""}</p>
         <button class="delete-post-btn" data-id="${post.id}">Delete</button>
         <button class="edit-post-btn" data-id="${post.id}">Edit</button>
+        <a href="./post.html?id=${post.id}">View post</a>
         </article>`,
     )
     .join("");

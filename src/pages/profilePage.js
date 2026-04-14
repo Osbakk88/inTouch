@@ -10,13 +10,16 @@ export async function initProfilePage() {
   if (!container) return;
 
   const user = getUser();
-  if (!user?.name) {
-    container.innerHTML = `<p>Could not find user profile.</p>`;
+  const params = new URLSearchParams(window.location.search);
+  const profileName = params.get("name") || user?.name;
+
+  if (!profileName) {
+    container.innerHTML = `<p>No profile found.</p>`;
     return;
   }
 
   try {
-    const profile = await getProfile(user.name);
+    const profile = await getProfile(profileName);
     container.innerHTML = renderProfile(profile);
   } catch (error) {
     container.innerHTML = `<p>Failed to load profile: ${error.message}</p>`;
@@ -38,7 +41,7 @@ export async function initProfilePage() {
         await unfollowProfile(username);
       }
 
-      const profile = await getProfile(user.name);
+      const profile = await getProfile(profileName);
       container.innerHTML = renderProfile(profile);
     } catch (error) {
       container.innerHTML = `<p>This action failed: ${error.message}</p>`;
