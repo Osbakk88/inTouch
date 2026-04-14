@@ -4,7 +4,7 @@ import { getToken } from "../utils/storage.js";
 export async function getPosts() {
   const accessToken = getToken();
 
-  const response = await fetch(API_ENDPOINTS.posts.base, {
+  const response = await fetch(`${API_ENDPOINTS.posts.base}?_author=true`, {
     headers: {
       Authorization: `Bearer ${accessToken}`,
       "X-Noroff-API-Key": API_KEY,

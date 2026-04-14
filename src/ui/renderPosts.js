@@ -9,6 +9,7 @@ export function renderPosts(posts = []) {
         `<article class="post-card">
         <h3>${post.title ?? "Post"}</h3>
         <p>${post.body ?? ""}</p>
+        <p>Posted by: <a href="./profile.html?name=${post.author?.name ?? ""}">${post.author?.name ?? "Unknown user"}</a></p>
         <button class="delete-post-btn" data-id="${post.id}">Delete</button>
         <button class="edit-post-btn" data-id="${post.id}">Edit</button>
         <a href="./post.html?id=${post.id}">View post</a>
