@@ -81,3 +81,22 @@ export async function deletePost(postId) {
 
   return true;
 }
+
+export async function getPostById(postId) {
+  const accessToken = getToken();
+
+  const response = await fetch(`${API_ENDPOINTS.posts.base}/${postId}`, {
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+      "X-Noroff-API-Key": API_KEY,
+    },
+  });
+
+  const result = await response.json();
+
+  if (!response.ok) {
+    throw new Error("Failed to load post. Please try again.");
+  }
+
+  return result.data;
+}
