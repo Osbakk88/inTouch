@@ -1,13 +1,23 @@
 import { requireAuth } from "../utils/authGuard.js";
 import { renderProfile } from "../ui/renderProfile.js";
 import { getProfile, followProfile, unfollowProfile } from "../api/profiles.js";
-import { getUser } from "../utils/storage.js";
+import { getUser, clearToken, clearUser } from "../utils/storage.js";
 
 export async function initProfilePage() {
   if (!requireAuth()) return;
 
   const container = document.querySelector("#profile-view");
   if (!container) return;
+
+  const logoutLinks = document.querySelectorAll(".logout-link");
+  logoutLinks.forEach((link) => {
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      clearToken();
+      clearUser();
+      window.location.href = "./login.html";
+    });
+  });
 
   const user = getUser();
   const params = new URLSearchParams(window.location.search);

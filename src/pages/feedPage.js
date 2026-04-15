@@ -2,6 +2,7 @@ import { requireAuth } from "../utils/authGuard.js";
 import { renderPosts } from "../ui/renderPosts.js";
 import { getPosts, createPost, deletePost, updatePost } from "../api/posts.js";
 import { getFormData } from "../ui/forms.js";
+import { clearToken, clearUser } from "../utils/storage.js";
 
 export async function initFeedPage() {
   if (!requireAuth()) return;
@@ -11,8 +12,18 @@ export async function initFeedPage() {
 
   const form = document.querySelector("#create-post-form");
   const postError = document.querySelector("#post-error");
+  const logoutLinks = document.querySelectorAll(".logout-link");
 
   if (!form || !postError) return;
+
+  logoutLinks.forEach((link) => {
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      clearToken();
+      clearUser();
+      window.location.href = "./login.html";
+    });
+  });
 
   let posts = [];
 

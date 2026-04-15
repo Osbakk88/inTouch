@@ -46,6 +46,7 @@ button {
   color: red;
 }
 
+/* AI-assisted: I used guidance to learn how to make this purple/pink header style. */
 .site-header {
   display: grid;
   grid-template-columns: 1.2fr auto 1fr;
@@ -56,8 +57,8 @@ button {
   margin: 0;
   margin-bottom: 20px;
   padding: 12px 24px 20px;
-  background: #fff;
-  border-bottom: 1px solid #ddd;
+  background: linear-gradient(135deg, #3a245c 0%, #5a3a7a 42%, #8a5b8f 100%);
+  border-bottom: 1px solid #311b49;
   border-radius: 0;
 }
 
@@ -80,15 +81,43 @@ button {
   justify-self: center;
 }
 
+/* AI-assisted: I used guidance and suggestions to learn this header button color and glass effect. */
 .site-nav a {
   text-decoration: none;
-  color: #222;
-  background: #f7f7f7;
-  border: 1px solid #ddd;
+  color: #f4f6ff;
+  background: rgba(255, 228, 245, 0.14);
+  border: 1px solid rgba(255, 228, 245, 0.26);
   border-radius: 6px;
   padding: 6px 10px;
 }
 
 .site-nav a:hover {
-  background: #ececec;
+  background: rgba(255, 228, 245, 0.24);
+}
+
+.site-footer {
+  margin-top: 30px;
+  padding: 18px 24px;
+  background: linear-gradient(135deg, #2d1c45 0%, #4c3168 45%, #714c78 100%);
+  border-top: 1px solid #311b49;
+}
+
+.site-footer-nav {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.site-footer-nav a {
+  text-decoration: none;
+  color: #f4f6ff;
+  background: rgba(255, 228, 245, 0.12);
+  border: 1px solid rgba(255, 228, 245, 0.22);
+  border-radius: 6px;
+  padding: 6px 10px;
+}
+
+.site-footer-nav a:hover {
+  background: rgba(255, 228, 245, 0.24);
 }
