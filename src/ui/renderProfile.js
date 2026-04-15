@@ -1,7 +1,9 @@
 export function renderProfile(profile = {}) {
   const avatarUrl = profile.avatar?.url ?? "";
   const bannerUrl = profile.banner?.url ?? "";
-  const bio = profile.bio ?? "No bio found.";
+  const bio =
+    profile.bio ??
+    "Hi, I'm Christina. Second year front-end developer student ☺️";
 
   return `
       <section class="profile-card">
