@@ -36,6 +36,10 @@ export async function followProfile(username) {
 
   const result = await response.json();
 
+  if (!response.ok) {
+    throw new Error(`Error. Could not follow ${username}. Please try again.`);
+  }
+
   return result.data;
 }
 

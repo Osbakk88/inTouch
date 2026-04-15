@@ -86,8 +86,33 @@ button:active {
   margin-bottom: 12px;
 }
 
+.profile-banner {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 14px;
+}
+
+.profile-avatar {
+  display: block;
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 12px;
+}
+
 .error {
   color: red;
+}
+
+#follow-feedback {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: #4a2f68;
 }
 
 /* AI-assisted: I used guidance to learn how to make this purple/pink header style. */

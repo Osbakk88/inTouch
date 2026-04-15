@@ -35,6 +35,7 @@ export async function initProfilePage() {
     container.innerHTML = `<p>Failed to load profile: ${error.message}</p>`;
   }
 
+  // AI-assisted: I used help to understand the click handling and feedback for follow/unfollow.
   container.addEventListener("click", async (event) => {
     const followBtn = event.target.closest(".follow-btn");
     const unfollowBtn = event.target.closest(".unfollow-btn");
@@ -53,8 +54,18 @@ export async function initProfilePage() {
 
       const profile = await getProfile(profileName);
       container.innerHTML = renderProfile(profile);
+
+      const feedback = container.querySelector("#follow-feedback");
+      if (feedback) {
+        feedback.textContent = followBtn
+          ? `You are now following ${username}.`
+          : `You unfollowed ${username}.`;
+      }
     } catch (error) {
-      container.innerHTML = `<p>This action failed: ${error.message}</p>`;
+      const feedback = container.querySelector("#follow-feedback");
+      if (feedback) {
+        feedback.textContent = `This action failed: ${error.message}`;
+      }
     }
   });
 }
