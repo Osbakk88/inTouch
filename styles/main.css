@@ -1,7 +1,6 @@
 body {
   font-family: sans-serif;
   margin: 0;
-  padding-top: 10px;
   background: #f5f5f5;
 }
 
@@ -48,35 +47,37 @@ button {
 }
 
 .site-header {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1.2fr auto 1fr;
   align-items: center;
-  justify-content: space-between;
-  gap: 16px;
+  gap: 24px;
   width: 100%;
   box-sizing: border-box;
   margin: 0;
   margin-bottom: 20px;
-  padding: 8px 20px;
+  padding: 12px 24px 20px;
   background: #fff;
   border-bottom: 1px solid #ddd;
   border-radius: 0;
 }
 
 .site-logo {
-  height: 120px;
-  width: 420px;
+  display: block;
+  height: 96px;
+  width: auto;
   object-fit: contain;
-  object-position: left top;
+  object-position: left center;
   flex-shrink: 0;
-  margin-top: 6px;
+  margin-top: 0;
+  justify-self: center;
 }
 
 .site-nav {
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
-  flex: 1;
   justify-content: center;
+  justify-self: center;
 }
 
 .site-nav a {
