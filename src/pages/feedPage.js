@@ -4,6 +4,11 @@ import { getPosts, createPost, deletePost, updatePost } from "../api/posts.js";
 import { getFormData } from "../ui/forms.js";
 import { clearToken, clearUser } from "../utils/storage.js";
 
+/**
+ * Sets up the feed page by loading posts and adding event listeners.
+ * Checks if user is logged in, loads all posts, and allows user to create/delete posts
+ * @returns {void}
+ */
 export async function initFeedPage() {
   if (!requireAuth()) return;
 

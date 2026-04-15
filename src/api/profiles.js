@@ -1,6 +1,11 @@
 import { API_ENDPOINTS, API_KEY } from "../utils/config.js";
 import { getToken } from "../utils/storage.js";
 
+/**
+ * Fetches a user's profile data from the API
+ * @param {string} username - The username to fetch
+ * @returns {Promise<Object>} The user's profile page.
+ */
 export async function getProfile(username) {
   const accessToken = getToken();
 
@@ -20,6 +25,11 @@ export async function getProfile(username) {
   return result.data;
 }
 
+/**
+ * Sends a follow request to the API for a specific user
+ * @param {string} username - The username to follow
+ * @returns {Promise<Object>} The API response confirming the follow action
+ */
 export async function followProfile(username) {
   const accessToken = getToken();
 

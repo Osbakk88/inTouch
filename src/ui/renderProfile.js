@@ -1,3 +1,8 @@
+/**
+ * Makes the HTML for the profile section on the page.
+ * @param {Object} profile - Information about the user.
+ * @returns {string} The profile HTML as a text string.
+ */
 export function renderProfile(profile = {}) {
   const avatarUrl = profile.avatar?.url ?? "";
   const bannerUrl = profile.banner?.url ?? "";
