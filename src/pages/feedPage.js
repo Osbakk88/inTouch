@@ -84,7 +84,7 @@ export async function initFeedPage() {
       await updatePost(postId, { title: newTitle, body: newBody });
 
       posts = await getPosts();
-      container.innerHTML = renderPosts(posts);
+      container.innerHTML = renderPosts(posts, currentUsername);
     } catch (error) {
       postError.textContent = error.message;
     }
