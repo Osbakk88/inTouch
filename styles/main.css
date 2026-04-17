@@ -86,6 +86,32 @@ button:active {
   margin-bottom: 12px;
 }
 
+.view-post-btn {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 9px 20px;
+  font-size: 0.95rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: 8px;
+  background: #5a3a7a;
+  color: #fff;
+  letter-spacing: 0.03em;
+  transition:
+    background 0.2s ease,
+    transform 0.1s ease;
+}
+
+.view-post-btn:hover {
+  background: #6b4891;
+  transform: translateY(-1px);
+}
+
+.view-post-btn:active {
+  transform: translateY(0);
+}
+
 .profile-banner {
   display: block;
   width: 100%;

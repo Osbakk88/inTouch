@@ -2,7 +2,7 @@ import { requireAuth } from "../utils/authGuard.js";
 import { renderPosts } from "../ui/renderPosts.js";
 import { getPosts, createPost, deletePost, updatePost } from "../api/posts.js";
 import { getFormData } from "../ui/forms.js";
-import { clearToken, clearUser } from "../utils/storage.js";
+import { clearToken, clearUser, getUser } from "../utils/storage.js";
 
 /**
  * Sets up the feed page by loading posts and adding event listeners.
@@ -11,6 +11,9 @@ import { clearToken, clearUser } from "../utils/storage.js";
  */
 export async function initFeedPage() {
   if (!requireAuth()) return;
+
+  const currentUser = getUser();
+  const currentUsername = currentUser?.name ?? "";
 
   const container = document.querySelector("#feed-list");
   if (!container) return;
@@ -34,7 +37,7 @@ export async function initFeedPage() {
 
   try {
     posts = await getPosts();
-    container.innerHTML = renderPosts(posts);
+    container.innerHTML = renderPosts(posts, currentUsername);
   } catch (error) {
     container.innerHTML = `<p>Failed to load posts: ${error.message}</p>`;
   }
@@ -50,31 +53,43 @@ export async function initFeedPage() {
       form.reset();
 
       posts = await getPosts();
-      container.innerHTML = renderPosts(posts);
+      container.innerHTML = renderPosts(posts, currentUsername);
     } catch (error) {
       postError.textContent = error.message;
     }
   });
 
+  // AI-assisted: I used help to merge the click handlers and keep the same behavior.
   container.addEventListener("click", async (event) => {
-    if (event.target.classList.contains("delete-post-btn")) {
-      const postId = event.target.dataset.id;
+    const deleteButton = event.target.closest(".delete-post-btn");
+    const editButton = event.target.closest(".edit-post-btn");
+
+    if (!deleteButton && !editButton) return;
+
+    const postId = deleteButton?.dataset.id ?? editButton?.dataset.id;
+    const selectedPost = posts.find((post) => post.id === postId);
+
+    if (deleteButton) {
+      if (selectedPost?.author?.name !== currentUsername) {
+        postError.textContent = "You can only delete your own posts.";
+        return;
+      }
 
       try {
         await deletePost(postId);
         posts = await getPosts();
-        container.innerHTML = renderPosts(posts);
+        container.innerHTML = renderPosts(posts, currentUsername);
       } catch (error) {
         postError.textContent = error.message;
       }
+      return;
     }
-  });
 
-  container.addEventListener("click", async (event) => {
-    const editButton = event.target.closest(".edit-post-btn");
-    if (!editButton) return;
+    if (selectedPost?.author?.name !== currentUsername) {
+      postError.textContent = "You can only edit your own posts.";
+      return;
+    }
 
-    const postId = editButton.dataset.id;
     const newTitle = prompt("New title:");
     const newBody = prompt("New body:");
 
@@ -101,7 +116,7 @@ export async function initFeedPage() {
         post.title?.toLowerCase().includes(keyword) ||
         post.body?.toLowerCase().includes(keyword),
     );
-    container.innerHTML = renderPosts(filteredPosts);
+    container.innerHTML = renderPosts(filteredPosts, currentUsername);
   });
 }
 
