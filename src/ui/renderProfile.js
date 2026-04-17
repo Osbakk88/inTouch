@@ -6,9 +6,10 @@
 export function renderProfile(profile = {}) {
   const avatarUrl = profile.avatar?.url ?? "";
   const bannerUrl = profile.banner?.url ?? "";
-  const bio =
-    profile.bio ??
-    "Hi, I'm Christina. Second year front-end developer student ☺️";
+  let bio = "This user has not added a bio yet.";
+  if (profile.bio && profile.bio.trim() !== "") {
+    bio = profile.bio;
+  }
 
   // AI-assisted: I used help to keep the follow/unfollow section simple and easy to understand.
   return `
