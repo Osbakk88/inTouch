@@ -86,6 +86,23 @@ button:active {
   margin-bottom: 12px;
 }
 
+.post-card h3,
+.post-card p,
+.post-single h2,
+.post-single p {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  white-space: pre-wrap;
+}
+
+.post-single {
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 10px;
+}
+
 .view-post-btn {
   display: inline-block;
   margin-left: 8px;
