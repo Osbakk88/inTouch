@@ -26,3 +26,34 @@ export function renderProfile(profile = {}) {
     </section>
   `;
 }
+
+export function renderProfilePosts(posts = []) {
+  // AI-assisted: I used help to keep this posts section simple to read and render.
+  if (!posts.length) {
+    return `
+      <section class="profile-card">
+        <h3>User posts</h3>
+        <p>This user has not posted anything yet.</p>
+      </section>
+    `;
+  }
+
+  const items = posts
+    .map(
+      (post) => `
+        <article class="post-card">
+          <h3>${post.title ?? "Post"}</h3>
+          <p>${post.body ?? ""}</p>
+          <a class="view-post-btn" href="./post.html?id=${post.id}">View post</a>
+        </article>
+      `,
+    )
+    .join("");
+
+  return `
+    <section class="profile-card">
+      <h3>User posts</h3>
+      ${items}
+    </section>
+  `;
+}

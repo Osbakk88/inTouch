@@ -1,7 +1,20 @@
 import { requireAuth } from "../utils/authGuard.js";
-import { renderProfile } from "../ui/renderProfile.js";
-import { getProfile, followProfile, unfollowProfile } from "../api/profiles.js";
+import { renderProfile, renderProfilePosts } from "../ui/renderProfile.js";
+import {
+  getProfile,
+  getProfilePosts,
+  followProfile,
+  unfollowProfile,
+} from "../api/profiles.js";
 import { getUser, clearToken, clearUser } from "../utils/storage.js";
+
+async function renderProfilePageContent(container, profileName) {
+  // AI-assisted: I used help to load profile info and that user's posts in one place.
+  const profile = await getProfile(profileName);
+  const profilePosts = await getProfilePosts(profileName);
+  container.innerHTML =
+    renderProfile(profile) + renderProfilePosts(profilePosts);
+}
 
 export async function initProfilePage() {
   if (!requireAuth()) return;
@@ -29,8 +42,7 @@ export async function initProfilePage() {
   }
 
   try {
-    const profile = await getProfile(profileName);
-    container.innerHTML = renderProfile(profile);
+    await renderProfilePageContent(container, profileName);
   } catch (error) {
     container.innerHTML = `<p>Failed to load profile: ${error.message}</p>`;
   }
@@ -52,8 +64,7 @@ export async function initProfilePage() {
         await unfollowProfile(username);
       }
 
-      const profile = await getProfile(profileName);
-      container.innerHTML = renderProfile(profile);
+      await renderProfilePageContent(container, profileName);
 
       const feedback = container.querySelector("#follow-feedback");
       if (feedback) {

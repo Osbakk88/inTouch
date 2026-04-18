@@ -25,6 +25,29 @@ export async function getProfile(username) {
   return result.data;
 }
 
+export async function getProfilePosts(username) {
+  // AI-assisted: I used help to find the right endpoint for getting one user's posts to display on user profile.
+  const accessToken = getToken();
+
+  const response = await fetch(
+    `${API_ENDPOINTS.profiles.base}/${username}/posts?_author=true`,
+    {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+        "X-Noroff-API-Key": API_KEY,
+      },
+    },
+  );
+
+  const result = await response.json();
+
+  if (!response.ok) {
+    throw new Error("Could not load posts for this user. Please try again.");
+  }
+
+  return result.data;
+}
+
 /**
  * Sends a follow request to the API for a specific user
  * @param {string} username - The username to follow
