@@ -67,7 +67,7 @@ export async function initFeedPage() {
     if (!deleteButton && !editButton) return;
 
     const postId = deleteButton?.dataset.id ?? editButton?.dataset.id;
-    const selectedPost = posts.find((post) => post.id === postId);
+    const selectedPost = posts.find((post) => String(post.id) === postId);
 
     if (deleteButton) {
       if (selectedPost?.author?.name !== currentUsername) {
