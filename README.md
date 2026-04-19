@@ -4,6 +4,13 @@ inTouch is a social media application I built in vanilla JavaScript using ES6 mo
 The app lets users register, log in, create posts, edit/delete their own posts, view profiles, and follow/unfollow other users.
 This project was developed as a JavaScript assignment at Noroff, where I am a second-year student.
 
+<img width="1710" height="945" alt="Skjermbilde 2026-04-19 kl  19 15 14" src="https://github.com/user-attachments/assets/da68dc1a-a1f6-4534-b644-c8558414f1df" />
+
+
+<img width="1710" height="947" alt="Skjermbilde 2026-04-19 kl  19 16 44" src="https://github.com/user-attachments/assets/9008477e-4d83-423d-b592-cb0d442e99a3" />
+
+
+
 ## Live site
 
 - Live version (GitHub Pages): `https://osbakk88.github.io/inTouch/`
