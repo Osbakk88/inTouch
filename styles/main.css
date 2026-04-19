@@ -16,6 +16,14 @@ body {
   flex: 1;
 }
 
+.home-icon {
+  display: block;
+  width: 180px;
+  max-width: 100%;
+  margin: 22px auto 0;
+  object-fit: contain;
+}
+
 form {
   display: flex;
   flex-direction: column;

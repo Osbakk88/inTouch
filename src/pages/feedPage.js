@@ -75,6 +75,12 @@ export async function initFeedPage() {
         return;
       }
 
+      const confirmed = confirm("Are you sure you want to delete this post?");
+      if (!confirmed) {
+        postError.textContent = "";
+        return;
+      }
+
       try {
         await deletePost(postId);
         posts = await getPosts();
@@ -114,7 +120,8 @@ export async function initFeedPage() {
     const filteredPosts = posts.filter(
       (post) =>
         post.title?.toLowerCase().includes(keyword) ||
-        post.body?.toLowerCase().includes(keyword),
+        post.body?.toLowerCase().includes(keyword) ||
+        post.author?.name?.toLowerCase().includes(keyword),
     );
     container.innerHTML = renderPosts(filteredPosts, currentUsername);
   });
