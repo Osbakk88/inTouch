@@ -1,6 +1,6 @@
 # inTouch
 
-inTouch is a social media app I built in vanilla JavaScript using ES6 modules.  
+inTouch is a social media application I built in vanilla JavaScript using ES6 modules.  
 The app lets users register, log in, create posts, edit/delete their own posts, view profiles, and follow/unfollow other users.
 
 ## Live site
