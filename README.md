@@ -2,6 +2,7 @@
 
 inTouch is a social media application I built in vanilla JavaScript using ES6 modules.  
 The app lets users register, log in, create posts, edit/delete their own posts, view profiles, and follow/unfollow other users.
+This project was developed as a JavaScript assignment at Noroff, where I am a second-year student.
 
 ## Live site
 
@@ -55,7 +56,7 @@ Example using `npx serve`:
 npx serve .
 ```
 
-Then open the local URL shown in terminal.
+Then open the local URL shown in the terminal.
 
 ## API setup note
 
@@ -80,7 +81,7 @@ This helped me learn things like:
 
 - Tool used: GitHub Copilot (Chat in VS Code)
 - Date: 14 April 2026
-- Purpose: Guidance for search logic scope and event-listener placement on the feed page.
+- Purpose: Guidance for search logic scope and event listener placement on the feed page.
 - Outcome: Search behavior became clearer and easier to maintain.
 
 - Tool used: GitHub Copilot (Chat in VS Code)
@@ -95,7 +96,7 @@ This helped me learn things like:
 
 - Tool used: GitHub Copilot (Chat in VS Code)
 - Date: 18 April 2026
-- Purpose: Support for profile-posts endpoint usage and rendering logic (get posts of a user).
+- Purpose: Support for profile posts endpoint usage and rendering logic (get posts of a user).
 - Outcome: Completed missing profile-posts functionality and improved API understanding.
 
 - Tool used: GitHub Copilot (Chat in VS Code)
