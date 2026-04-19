@@ -12,8 +12,7 @@ import { clearToken, clearUser, getUser } from "../utils/storage.js";
 export async function initFeedPage() {
   if (!requireAuth()) return;
 
-  const currentUser = getUser();
-  const currentUsername = currentUser?.name ?? "";
+  const { name: currentUsername = "" } = getUser() ?? {};
 
   const container = document.querySelector("#feed-list");
   if (!container) return;

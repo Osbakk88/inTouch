@@ -76,6 +76,33 @@ This helped me learn things like:
 - how to keep code modular with ES6 modules
 - I also used AI early in the project to scaffold the structure and suggest a clean folder/module setup so the codebase was easier to understand and maintain.
 
+## AI Usage Log
+
+- Tool used: GitHub Copilot (Chat in VS Code)
+- Date: 14 April 2026
+- Purpose: Guidance for search logic scope and event-listener placement on the feed page.
+- Outcome: Search behavior became clearer and easier to maintain.
+
+- Tool used: GitHub Copilot (Chat in VS Code)
+- Date: 15 April 2026
+- Purpose: Guidance for follow/unfollow UI and click handling in profile-related code.
+- Outcome: Improved understanding of interaction flow and cleaner profile rendering.
+
+- Tool used: GitHub Copilot (Chat in VS Code)
+- Date: 17 April 2026
+- Purpose: Help merging feed click handlers and keeping behavior consistent.
+- Outcome: Better debugging workflow and clearer understanding of event listener placement.
+
+- Tool used: GitHub Copilot (Chat in VS Code)
+- Date: 18 April 2026
+- Purpose: Support for profile-posts endpoint usage and rendering logic (get posts of a user).
+- Outcome: Completed missing profile-posts functionality and improved API understanding.
+
+- Tool used: GitHub Copilot (Chat in VS Code)
+- Date: 19 April 2026
+- Purpose: Learning support through explanations, requirement checks, and quiz-style questions.
+- Outcome: Improved confidence in debugging, assignment compliance checks, and README clarity.
+
 ## Future improvements
 
 If I continue this project, I would like to improve both features and UX/design:
