@@ -8,25 +8,11 @@
       content="Sign in to inTouch to access your feed, create posts, and manage your social profile."
     />
     <title>inTouch | Login</title>
-    <link rel="stylesheet" href="./styles/main.css" />
+    <link rel="stylesheet" href="./styles/output.css" />
   </head>
   <body>
-    <header class="site-header">
-      <img
-        src="./logo/FullLogo_Transparent_NoBuffer (6).png"
-        alt="inTouch logo"
-        class="site-logo"
-      />
-      <nav class="site-nav">
-        <a href="./index.html">Home</a>
-        <a href="./feed.html">Feed</a>
-        <a href="./profile.html">Profile</a>
-        <a href="./login.html">Login</a>
-        <a href="./register.html">Register</a>
-      </nav>
-    </header>
-    <main class="container">
-      <h1>Login</h1>
+    <main class="site-main max-w-3xl mx-auto p-6">
+      <h1 class="text-purple-600 text-4xl font-bold">Login</h1>
       <form id="login-form">
         <label for="login-email">Email</label>
         <input
@@ -49,6 +35,20 @@
       </form>
       <p>Don't have an account? <a href="./register.html">Register here</a></p>
     </main>
+    <header class="flex items-center justify-between p-4 bg-purple-100">
+      <img
+        src="./logo/FullLogo_Transparent_NoBuffer (6).png"
+        alt="inTouch logo"
+        class="h-12"
+      />
+      <nav class="flex gap-4">
+        <a href="./index.html">Home</a>
+        <a href="./feed.html">Feed</a>
+        <a href="./profile.html">Profile</a>
+        <a href="./login.html">Login</a>
+        <a href="./register.html">Register</a>
+      </nav>
+    </header>
     <footer class="site-footer">
       <nav class="site-footer-nav">
         <a href="./index.html">Home</a>
