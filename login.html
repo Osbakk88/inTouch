@@ -11,30 +11,6 @@
     <link rel="stylesheet" href="./styles/output.css" />
   </head>
   <body>
-    <main class="site-main max-w-3xl mx-auto p-6">
-      <h1 class="text-purple-600 text-4xl font-bold">Login</h1>
-      <form id="login-form">
-        <label for="login-email">Email</label>
-        <input
-          id="login-email"
-          name="email"
-          type="email"
-          autocomplete="email"
-          required
-        />
-        <label for="login-password">Password</label>
-        <input
-          id="login-password"
-          name="password"
-          type="password"
-          autocomplete="current-password"
-          required
-        />
-        <button type="submit">Sign in</button>
-        <p id="login-error" class="error"></p>
-      </form>
-      <p>Don't have an account? <a href="./register.html">Register here</a></p>
-    </main>
     <header class="flex items-center justify-between p-4 bg-purple-100">
       <img
         src="./logo/FullLogo_Transparent_NoBuffer (6).png"
@@ -49,6 +25,42 @@
         <a href="./register.html">Register</a>
       </nav>
     </header>
+    <main class="site-main max-w-3xl mx-auto p-6">
+      <h1 class="text-purple-600 text-4xl font-bold">Login</h1>
+      <form id="login-form" class="flex flex-col gap-3">
+        <label for="login-email" class="font-semibold"> Email</label>
+        <input
+          id="login-email"
+          name="email"
+          type="email"
+          autocomplete="email"
+          required
+          class="border border-gray-300 rounded-md p-2"
+        />
+        <label for="login-password" class="font-semibold">Password</label>
+        <input
+          id="login-password"
+          name="password"
+          type="password"
+          autocomplete="current-password"
+          required
+          class="border border-gray-300 rounded-md p-2"
+        />
+        <button
+          type="submit"
+          class="bg-purple-600 text-white rounded-md p-2 hover:bg-purple-700"
+        >
+          Sign in
+        </button>
+        <p id="login-error" class="error"></p>
+      </form>
+      <p>
+        Don't have an account?
+        <a href="./register.html" class="text-purple-600 hover:underline"
+          >Register here</a
+        >
+      </p>
+    </main>
     <footer class="site-footer">
       <nav class="site-footer-nav">
         <a href="./index.html">Home</a>
