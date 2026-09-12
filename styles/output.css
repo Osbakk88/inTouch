@@ -354,6 +354,12 @@
   .border-gray-300 {
     border-color: var(--color-gray-300);
   }
+  .bg-emerald-600 {
+    background-color: var(--color-emerald-600);
+  }
+  .bg-emerald-900 {
+    background-color: var(--color-emerald-900);
+  }
   .bg-gray-200 {
     background-color: var(--color-gray-200);
   }
@@ -363,11 +369,41 @@
   .bg-purple-100 {
     background-color: var(--color-purple-100);
   }
+  .bg-purple-200 {
+    background-color: var(--color-purple-200);
+  }
+  .bg-purple-300 {
+    background-color: var(--color-purple-300);
+  }
+  .bg-purple-400 {
+    background-color: var(--color-purple-400);
+  }
+  .bg-purple-500 {
+    background-color: var(--color-purple-500);
+  }
   .bg-purple-600 {
     background-color: var(--color-purple-600);
   }
+  .bg-purple-800 {
+    background-color: var(--color-purple-800);
+  }
+  .bg-purple-900 {
+    background-color: var(--color-purple-900);
+  }
+  .bg-purple-950 {
+    background-color: var(--color-purple-950);
+  }
   .bg-red-500 {
     background-color: var(--color-red-500);
+  }
+  .bg-red-950 {
+    background-color: var(--color-red-950);
+  }
+  .bg-rose-300 {
+    background-color: var(--color-rose-300);
+  }
+  .bg-rose-500 {
+    background-color: var(--color-rose-500);
   }
   .bg-rose-700 {
     background-color: var(--color-rose-700);
@@ -377,6 +413,9 @@
   }
   .bg-rose-900 {
     background-color: var(--color-rose-900);
+  }
+  .bg-rose-950 {
+    background-color: var(--color-rose-950);
   }
   .bg-white {
     background-color: var(--color-white);
@@ -516,6 +555,9 @@
     .hover\:bg-red-600:hover {
       background-color: var(--color-red-600);
     }
+    .hover\:bg-rose-200:hover {
+      background-color: var(--color-rose-200);
+    }
     .hover\:bg-rose-800:hover {
       background-color: var(--color-rose-800);
     }
@@ -532,6 +574,9 @@
     }
     .hover\:text-purple-700:hover {
       color: var(--color-purple-700);
+    }
+    .hover\:text-rose-700:hover {
+      color: var(--color-rose-700);
     }
     .hover\:text-white:hover {
       color: var(--color-white);
