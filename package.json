@@ -1,0 +1,26 @@
+{
+  "name": "intouch",
+  "version": "1.0.0",
+  "description": "inTouch is a social media application I built in vanilla JavaScript using ES6 modules.   The app lets users register, log in, create posts, edit/delete their own posts, view profiles, and follow/unfollow other users. This project was developed as a JavaScript assignment at Noroff, where I am a second-year student.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tailwindcss -i ./src/css/input.css -o ./styles/output.css --watch",
+    "build": "tailwindcss -i ./src/css/input.css -o ./styles/output.css --minify"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Osbakk88/inTouch.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Osbakk88/inTouch/issues"
+  },
+  "homepage": "https://github.com/Osbakk88/inTouch#readme",
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.3.3",
+    "tailwindcss": "^4.3.3"
+  }
+}
