@@ -11,21 +11,37 @@
     <link rel="stylesheet" href="./styles/output.css" />
   </head>
   <body class="bg-purple-50 min-h-screen flex flex-col">
-    <header class="flex items-center justify-between p-4 bg-purple-100">
+    <header class="flex items-center justify-between px-8 py-4 bg-rose-900">
       <img
         src="./logo/FullLogo_Transparent_NoBuffer (6).png"
         alt="inTouch logo"
-        class="h-12"
+        class="h-16"
       />
       <nav class="flex gap-4">
-        <a href="./index.html">Home</a>
-        <a href="./feed.html">Feed</a>
-        <a href="./profile.html">Profile</a>
-        <a href="#" class="logout-link">Logout</a>
+        <a
+          href="./index.html"
+          class="px-4 py-2 rounded-md text-white font-semibold tracking-wide bg-white/10 hover:bg-white/20 transition-colors"
+          >Home</a
+        >
+        <a
+          href="./feed.html"
+          class="px-4 py-2 rounded-md text-white font-semibold tracking-wide bg-white/10 hover:bg-white/20 transition-colors"
+          >Feed</a
+        >
+        <a
+          href="./profile.html"
+          class="px-4 py-2 rounded-md text-white font-semibold tracking-wide bg-white/10 hover:bg-white/20 transition-colors"
+          >Profile</a
+        >
+        <a
+          href="#"
+          class="px-4 py-2 rounded-md text-white font-semibold tracking-wide bg-white/10 hover:bg-white/20 transition-colors logout-link"
+          >Logout</a
+        >
       </nav>
     </header>
     <main class="max-w-3xl mx-auto p-6 flex-1">
-      <h1 class="text-purple-600 text-4xl font-bold">Feed</h1>
+      <h1 class="text-black text-4xl font-bold mb-4">Feed</h1>
       <input
         type="text"
         id="search-input"
@@ -33,7 +49,7 @@
         class="border border-gray-300 rounded-md p-2"
       />
       <form id="create-post-form" class="flex flex-col gap-3">
-        <label for="post-title" class="font-semibold">Title</label>
+        <label for="post-title" class="font-semibold mt-2">Title</label>
         <input
           id="post-title"
           name="title"
@@ -51,7 +67,7 @@
         ></textarea>
         <button
           type="submit"
-          class="bg-purple-600 text-white rounded-md p-2 hover:bg-purple-700"
+          class="bg-rose-800 text-white rounded-md p-2 hover:bg-rose-900"
         >
           Create post
         </button>
@@ -59,13 +75,30 @@
       </form>
       <section id="feed-list"></section>
     </main>
-    <footer class="bg-purple-100 p-4 mt-8">
+    <footer class="bg-rose-900 py-6 px-4 mt-8">
       <nav class="flex gap-4 justify-center">
-        <a href="./index.html">Home</a>
-        <a href="./feed.html">Feed</a>
-        <a href="./profile.html">Profile</a>
-        <a href="#" class="logout-link">Logout</a>
+        <a
+          href="./index.html"
+          class="px-4 py-2 rounded-md text-white font-semibold tracking-wide bg-white/10 hover:bg-white/20 transition-colors"
+          >Home</a
+        >
+        <a
+          href="./feed.html"
+          class="px-4 py-2 rounded-md text-white font-semibold tracking-wide bg-white/10 hover:bg-white/20 transition-colors"
+          >Feed</a
+        >
+        <a
+          href="./profile.html"
+          class="px-4 py-2 rounded-md text-white font-semibold tracking-wide bg-white/10 hover:bg-white/20 transition-colors"
+          >Profile</a
+        >
+        <a
+          href="#"
+          class="px-4 py-2 rounded-md text-white font-semibold tracking-wide bg-white/10 hover:bg-white/20 transition-colors logout-link"
+          >Logout</a
+        >
       </nav>
+
       <div class="text-center text-sm mt-4">
         <p>&copy; Copyright 2026 inTouch. All rights reserved</p>
       </div>
