@@ -47,6 +47,11 @@ This log documents all AI assistance received while working on this assignment, 
 **Purpose:** Help drafting and refining the written reflection for this assignment, based on the process and challenges discussed throughout the project.
 **Outcome:** Used Claude to help structure my thoughts and phrase things clearly (helpful for me as a dyslexic student), then edited and personalized the content myself so it reflects my own voice and experience.
 
+**Tool used:** Claude (Anthropic)
+**Date: 2026-09-12:**
+**Purpose:** Explored improving the visual design after the core functionality and pages were done. Better nav link styling (hover states, then a more visible "always-on" pill style). Also discussed a custom Tailwind color (@theme config) as an option, though I ended up using Tailwind's built-in rose scale instead.
+**Outcome:** Updated the header, footer, nav links, and buttons across all three pages (login, feed, profile). And both JS-rendered files (renderProfile.js, renderPosts.js) to a consistent rose/burgundy palette. Made several of these class changes independently after seeing the pattern repeated a few times, then had them checked over for consistency and small typos.
+
 ## Notes on AI use overall
 
 I used AI mainly to have concepts explained (Git, Tailwind, the CSS vs. JS framework distinction) and to talk through debugging when I got stuck, rather than to generate finished code. Having given Claude the assignment's AI Policy up front meant it pushed back on a few things that were closer to the line than I initially realized.
